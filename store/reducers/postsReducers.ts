@@ -4,17 +4,17 @@ import {
   IPostsActions,
   IPostsState,
   fetchAddPostActionTypes,
+  IErrorAction,
 } from '../../interfaces/index';
 
 const initialState: IPostsState = {
   posts: [],
-  isLoading: false,
   error: null,
 };
 
 const postReducers = (
   state = initialState,
-  { type, payload }: IPostsActions,
+  { type, payload }: IPostsActions | IErrorAction | any,
 ): IPostsState => {
   switch (type) {
     case HYDRATE: {
@@ -26,15 +26,11 @@ const postReducers = (
 
     case fetchPostsActionTypes.FETCH_POSTS_REQUST:
     case fetchAddPostActionTypes.FETCH_ADD_POST_REQUST:
-      return {
-        ...state,
-        isLoading: true,
-      };
+      return state;
 
     case fetchPostsActionTypes.FETCH_POSTS_SUCCESS:
       return {
         ...state,
-        isLoading: false,
         posts: payload,
       };
 
@@ -42,14 +38,12 @@ const postReducers = (
     case fetchAddPostActionTypes.FETCH_ADD_POST_ERROR:
       return {
         ...state,
-        isLoading: false,
         error: payload,
       };
 
     case fetchAddPostActionTypes.FETCH_ADD_POST_SUCCESS:
       return {
         ...state,
-        isLoading: false,
         posts: [...state.posts, payload],
       };
 

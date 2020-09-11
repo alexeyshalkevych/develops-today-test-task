@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import Router from 'next/router';
 import { INewPost, fetchAddPostActionTypes } from '../../interfaces/index';
+import { Form, InputField, FormButton } from './FormNewPost.styled';
 
 const initialForm: INewPost = {
   title: '',
@@ -27,34 +29,32 @@ const FormNewPost: React.FC = () => {
       newPost,
     });
 
+    Router.push('/');
+
     setForm(initialForm);
   };
 
   return (
     <>
-      <form onSubmit={formSubmitHandler}>
-        <div>
-          <input
-            type="text"
-            placeholder="title"
-            name="title"
-            value={form.title}
-            onChange={inputChangeHandler}
-            required
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="body"
-            name="body"
-            value={form.body}
-            onChange={inputChangeHandler}
-            required
-          />
-        </div>
-        <button type="submit">Create post</button>
-      </form>
+      <Form onSubmit={formSubmitHandler}>
+        <InputField
+          type="text"
+          placeholder="Title"
+          name="title"
+          value={form.title}
+          onChange={inputChangeHandler}
+          required
+        />
+        <InputField
+          type="text"
+          placeholder="Body"
+          name="body"
+          value={form.body}
+          onChange={inputChangeHandler}
+          required
+        />
+        <FormButton type="submit">Create post</FormButton>
+      </Form>
     </>
   );
 };

@@ -53,6 +53,7 @@
     ],
     "react/state-in-constructor": [0, "always"],
     "react/static-property-placement": [0],
+    "@typescript-eslint/no-explicit-any": 0,
     "no-use-before-define": 0,
     "react/sort-comp": [
       0,

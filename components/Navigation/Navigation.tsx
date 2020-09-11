@@ -1,22 +1,29 @@
 import React from 'react';
 import Link from 'next/link';
+import {
+  NavigationWrapper,
+  NavigationLogo,
+  NavigationList,
+  NavigationListItem,
+} from './Navigation.styled';
 
 const Navigation: React.FC = () => {
   return (
-    <nav>
-      <ul>
-        <li>
+    <NavigationWrapper>
+      <NavigationLogo>Blog</NavigationLogo>
+      <NavigationList>
+        <NavigationListItem>
           <Link href="/">
             <a>Home</a>
           </Link>
-        </li>
-        <li>
+        </NavigationListItem>
+        <NavigationListItem>
           <Link href="/posts/new">
             <a>Create Post</a>
           </Link>
-        </li>
-      </ul>
-    </nav>
+        </NavigationListItem>
+      </NavigationList>
+    </NavigationWrapper>
   );
 };
 

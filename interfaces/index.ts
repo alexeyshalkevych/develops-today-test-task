@@ -42,8 +42,7 @@ export interface IErrorAction {
 
 export interface IPostsState {
   posts: IPost[];
-  isLoading: boolean;
-  error: IError | null;
+  error: IError | null | undefined;
 }
 
 export interface IRootState {

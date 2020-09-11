@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IPost, postIdQuery, INewPost } from '../interfaces';
+import { IPost, postIdQuery } from '../interfaces';
 
 axios.defaults.baseURL = 'https://simple-blog-api.crew.red/';
 
@@ -15,8 +15,8 @@ export const fetchPost = async (postId: postIdQuery): Promise<IPost> => {
   return data;
 };
 
-export const fetchCreatePost = async (post: INewPost): Promise<IPost> => {
-  const { newPost }: INewPost = post;
+export const fetchCreatePost = async (post: any): Promise<IPost> => {
+  const { newPost } = post;
 
   const { data } = await axios.post('posts', newPost);
 
