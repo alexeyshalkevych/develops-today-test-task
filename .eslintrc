@@ -38,6 +38,7 @@
     "no-console": 1,
     "jsx-a11y/label-has-for": 0,
     "jsx-a11y/label-has-associated-control": 0,
+    "jsx-a11y/anchor-is-valid": 0,
     "jsx-a11y/no-onchange": 0,
     "linebreak-style": ["error", "unix"],
     "react/jsx-filename-extension": [
@@ -52,6 +53,7 @@
     ],
     "react/state-in-constructor": [0, "always"],
     "react/static-property-placement": [0],
+    "no-use-before-define": 0,
     "react/sort-comp": [
       0,
       {
@@ -74,7 +76,8 @@
     "import/no-unresolved": 0,
     "no-underscore-dangle": 0,
     "react/react-in-jsx-scope": 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "import/no-extraneous-dependencies": 0
   },
   "globals": {
     "window": true,
