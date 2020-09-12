@@ -53,7 +53,12 @@ const FormNewPost: React.FC = () => {
           onChange={inputChangeHandler}
           required
         />
-        <FormButton type="submit">Create post</FormButton>
+        <FormButton
+          type="submit"
+          disabled={!form.title.trim() || !form.body.trim()}
+        >
+          Create post
+        </FormButton>
       </Form>
     </>
   );

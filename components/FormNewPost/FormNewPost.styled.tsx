@@ -42,6 +42,12 @@ export const FormButton = styled.button`
     border-bottom: 2px solid #222;
     border-radius: 0;
   }
+
+  &:disabled {
+    color: #222;
+    background-color: #ccc;
+    border-radius: 0;
+  }
 `;
 
 export const MissField = styled.p`
