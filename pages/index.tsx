@@ -11,6 +11,10 @@ const Home: NextPage = () => {
       <Head>
         <title>Develops Today Blog</title>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <PostsListContainer />
     </>
