@@ -11,9 +11,7 @@ https://github.com/alexeyshalkevych/develops-today-test-task.git
 Second, run command in your CLI
 
 ```bash
-npm run dev
-# or
-yarn dev
+npm install
 ```
 
 Third, run command
