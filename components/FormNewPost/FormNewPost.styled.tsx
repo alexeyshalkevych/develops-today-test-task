@@ -26,7 +26,7 @@ export const FormButton = styled.button`
   justify-content: center;
   min-width: 150px;
   height: 50px;
-  margin-top: 40px;
+  margin-top: 10px;
   font-family: 'Kufam', cursive;
   font-size: 16px;
   color: #eee;
@@ -51,8 +51,10 @@ export const FormButton = styled.button`
 `;
 
 export const MissField = styled.p`
+  margin: 40px 0 20px;
   font-family: sans-serif;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1.2;
   color: red;
 `;

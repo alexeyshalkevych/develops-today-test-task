@@ -33,14 +33,16 @@ const FormNewPost: React.FC = () => {
 
     const newPost = form;
 
-    dispatch({
-      type: fetchAddPostActionTypes.FETCH_ADD_POST,
-      newPost,
-    });
+    if (!error) {
+      dispatch({
+        type: fetchAddPostActionTypes.FETCH_ADD_POST,
+        newPost,
+      });
 
-    Router.push('/');
+      Router.push('/');
 
-    setForm(initialForm);
+      setForm(initialForm);
+    }
   };
 
   return (
@@ -65,12 +67,7 @@ const FormNewPost: React.FC = () => {
           onBlur={inputBlurHandler}
         />
         {error && <MissField>Field must be required</MissField>}
-        <FormButton
-          type="submit"
-          disabled={!form.title.trim() || !form.body.trim()}
-        >
-          Create post
-        </FormButton>
+        <FormButton type="submit">Create post</FormButton>
       </Form>
     </>
   );
