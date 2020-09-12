@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Router from 'next/router';
 import { INewPost, fetchAddPostActionTypes } from '../../interfaces/index';
-import { Form, InputField, FormButton } from './FormNewPost.styled';
+import { Form, InputField, FormButton, MissField } from './FormNewPost.styled';
 
 const initialForm: INewPost = {
   title: '',
@@ -11,12 +11,21 @@ const initialForm: INewPost = {
 
 const FormNewPost: React.FC = () => {
   const [form, setForm] = useState<INewPost>(initialForm);
+  const [error, setError] = useState<boolean>(false);
   const dispatch = useDispatch();
 
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     setForm({ ...form, [name]: value });
+  };
+
+  const inputBlurHandler = () => {
+    if (!form.body.trim() || !form.title.trim()) {
+      setError(true);
+    } else {
+      setError(false);
+    }
   };
 
   const formSubmitHandler = async (e: React.FormEvent) => {
@@ -43,6 +52,7 @@ const FormNewPost: React.FC = () => {
           name="title"
           value={form.title}
           onChange={inputChangeHandler}
+          onBlur={inputBlurHandler}
           required
         />
         <InputField
@@ -52,7 +62,9 @@ const FormNewPost: React.FC = () => {
           value={form.body}
           onChange={inputChangeHandler}
           required
+          onBlur={inputBlurHandler}
         />
+        {error && <MissField>Field must be required</MissField>}
         <FormButton
           type="submit"
           disabled={!form.title.trim() || !form.body.trim()}
