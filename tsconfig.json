@@ -16,6 +16,6 @@
     "jsx": "preserve",
     "downlevelIteration": true
   },
-  "include": ["pages"],
+  "include": ["pages", "components", "interfaces", "store", "services"],
   "exclude": ["node_modules"]
 }

@@ -1,6 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { IPost, IRootState } from '../../interfaces';
+import { IPost } from '../../interfaces';
 import PostsListItem from '../PostsListItem/PostsListItem';
 import { List, ListItem } from './PostList.styled';
 
@@ -8,9 +7,7 @@ interface IPostsListProps {
   posts?: IPost[];
 }
 
-const PostsList: React.FC<IPostsListProps> = () => {
-  const posts = useSelector<IRootState, IPost[]>(state => state.blog.posts);
-
+const PostsList: React.FC<IPostsListProps> = ({ posts }) => {
   return (
     <List>
       {posts &&

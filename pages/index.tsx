@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { END } from 'redux-saga';
 import { fetchPostsActionTypes } from '../interfaces';
 import { wrapper } from '../store';
-import PostsList from '../components/PostsList/PostsList';
+import PostsListContainer from '../containers/PostsListContainer';
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <title>Develops Today Blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PostsList />
+      <PostsListContainer />
     </>
   );
 };
